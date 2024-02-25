@@ -24,5 +24,6 @@ public class PostResponse {
                 .modifiedAt(post.getModifiedAt())
                 .writer(UserResponse.from(post.getWriter()))
                 .build();
+
     }
 }
