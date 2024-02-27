@@ -21,7 +21,7 @@ class UserTest {
                 .nickname("yong23")
                 .address("yongin")
                 .build();
-        TestUuidHolder testUuidHolder = new TestUuidHolder();
+        TestUuidHolder testUuidHolder = new TestUuidHolder("aaaaa-aaaa-aaa-aaaa");
         //when
 
         User user = User.from(userCreateDto, testUuidHolder);
@@ -30,7 +30,7 @@ class UserTest {
         assertThat(user.getNickname()).isEqualTo("yong23");
         assertThat(user.getStatus()).isEqualTo(UserStatus.PENDING);
         assertThat(user.getAddress()).isEqualTo("yongin");
-        assertThat(user.getCertificationCode()).isEqualTo(testUuidHolder.getUuid());
+        assertThat(user.getCertificationCode()).isEqualTo("aaaaa-aaaa-aaa-aaaa");
     }
 
     @Test
