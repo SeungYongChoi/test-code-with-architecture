@@ -1,8 +1,12 @@
 package com.example.demo.post.domain;
 
+import com.example.demo.common.service.port.ClockHolder;
+import com.example.demo.mock.TestClockHolder;
 import com.example.demo.user.domain.User;
 import com.example.demo.user.domain.UserStatus;
 import org.junit.jupiter.api.Test;
+
+import java.time.Clock;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -26,8 +30,10 @@ class PostTest {
                 .content("test-content")
                 .build();
 
+        TestClockHolder testClockHolder = new TestClockHolder(1234432156L);
+
         // when
-        Post post = Post.from(postCreate, user);
+        Post post = Post.from(postCreate, user, testClockHolder);
 
         // then
         assertThat(post.getContent()).isEqualTo("test-content");
