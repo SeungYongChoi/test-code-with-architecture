@@ -1,12 +1,8 @@
 package com.example.demo.post.controller;
 
-import com.example.demo.post.domain.Post;
-import com.example.demo.user.controller.UserController;
+import com.example.demo.post.controller.port.PostService;
 import com.example.demo.post.controller.response.PostResponse;
 import com.example.demo.post.domain.PostUpdate;
-import com.example.demo.post.infrastructure.PostEntity;
-import com.example.demo.post.service.PostService;
-import com.example.demo.user.controller.response.UserResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

@@ -6,22 +6,14 @@ import com.example.demo.post.domain.PostCreate;
 import com.example.demo.post.domain.PostUpdate;
 import com.example.demo.user.domain.User;
 import com.example.demo.user.domain.UserStatus;
-import com.example.demo.user.service.CertificationService;
-import com.example.demo.user.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.context.jdbc.Sql;
-import org.springframework.test.context.jdbc.SqlGroup;
 
-import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class PostServiceTest {
 
-    PostService postService;
+    PostServiceImpl postService;
 
     @BeforeEach
     public void init() {
@@ -59,7 +51,7 @@ class PostServiceTest {
                 .writer(fakeUserRepository.findById(1L).get())
                 .build());
 
-        this.postService = new PostService(fakePostRepository, fakeUserRepository, testClockHolder);
+        this.postService = new PostServiceImpl(fakePostRepository, fakeUserRepository, testClockHolder);
     }
     @Test
     void getPostById는_id로_post를_가져와야한다() {
